@@ -1,4 +1,79 @@
 # awesome-macOS - my attempt to make MacOS more convenient
+
+Prerequisites:
+- macOS 14+ (Apple Silicon recommended)
+- Xcode Command Line Tools:
+  ```sh
+  xcode-select --install
+  ```
+
+- Homebrew:
+  ```
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  ```
+
+Homebrew Tweaks:
+
+```sh
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_MAKE_JOBS=$(sysctl -n hw.ncpu)
+```
+
+Shell Customizations:
+
+```zsh
+brew install nano bat htop btop tmux tree watch rsync fastfetch zsh-autosuggestions zsh-syntax-highlighting
+```
+
+.zshrc Config
+
+```zsh
+
+cat > ~/.zshrc << 'EOF'
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
+export EDITOR="/opt/homebrew/bin/nano"
+export VISUAL="/opt/homebrew/bin/nano"
+
+ZSH_AUTOSUGGEST_STRATEGY=(completion)
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias cat="bat"
+
+HISTSIZE=100000
+SAVEHIST=100000
+setopt inc_append_history
+setopt share_history
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_MAKE_JOBS=$(sysctl -n hw.ncpu)
+
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
+EOF
+```
+
+.nanorc Config
+
+```zsh
+
+cat > ~/.nanorc << 'EOF'
+set linenumbers
+set tabsize 2
+set softwrap
+set mouse
+set indicator
+EOF
+```
+
+`exec zsh`
+
+
 ### Disable the Character Accent Selection (logout\reboot required)
 ```defaults write -g ApplePressAndHoldEnabled -bool false```
 
@@ -14,6 +89,9 @@
 ```NICKNAME ALL=(ALL) NOPASSWD: ALL```
 
 where `NICKNAME` should be replaced with your user nickname
+
+
+
 
 # List of Installed Applications
 
