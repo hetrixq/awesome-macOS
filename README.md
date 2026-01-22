@@ -7,14 +7,15 @@ Prerequisites:
   xcode-select --install
   ```
 
-- Homebrew:
+### Homebrew:
+- Installation
   ```
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
   ```
 
-Homebrew Tweaks:
+Global Homebrew Tweaks:
 
 ```sh
 export HOMEBREW_NO_AUTO_UPDATE=1
